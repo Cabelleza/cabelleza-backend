@@ -1,5 +1,8 @@
 package br.com.api.cabelleza.modelo;
 
+
+import org.springframework.beans.factory.annotation.Value;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -51,7 +54,8 @@ public class SaloesModelo {
     @Column(nullable = false, length = 100)
     private String telefoneSalao; //telefone de contato do salao;
 
+    @Value("#{'${seloSalao}'.split('Bronze', 'Prata', 'Ouro')}") // Separa os valores por vírgula
     @Column(nullable = false, length = 100)
-    private String seloSalao; //selo do salao
+     private String seloSalao; //selo do salao
 
 }
